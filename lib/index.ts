@@ -2,7 +2,7 @@ import "./setup/env"
 import express from "express"
 import cors from "cors"
 import jsonContentType from "./middleware/json-content-type"
-import apiV1 from "./router/v1"
+import v1 from "./router/v1"
 import notFound from "./router/not-found"
 
 // Server
@@ -15,7 +15,7 @@ app.use(express.json())
 app.use(jsonContentType)
 
 // Routes
-app.use("/v1", apiV1)
+app.use("/v1", v1.router)
 app.all("*", notFound)
 
 // Start

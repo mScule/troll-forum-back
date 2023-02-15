@@ -58,6 +58,9 @@ CRYPTING_JWT_SECRET=<STRING VALUE HERE>
 - Run `yarn db` to start the dev db.
 - Run `npx prisma migrate dev` to populate the database with tables and stuff.
 
+** If you are using HeidiSQL to view the database, you need to install the **
+** package that it recommends in the connection error **
+
 ### If database container is stopped:
 - Run `yarn db`
 
