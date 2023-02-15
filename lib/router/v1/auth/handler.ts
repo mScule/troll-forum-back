@@ -7,23 +7,23 @@ import jwt from "jsonwebtoken"
 const { CRYPTING_JWT_SECRET } = process.env
 
 function signIn(req: Request, res: Response) {
-  const email = asLowerCase(req.body.email)
+  const username = asLowerCase(req.body.email)
   const password = req.body.password
 
   prisma(async client => {
     const user = await client.user.findUnique({
       where: {
-        email
+        username
       }
     })
 
     if (!user) {
-      res.status(404).send(`User doesn't exist for email ${email}`)
+      res.status(404).send(`User doesn't exist for email ${username}`)
       return
     }
 
     if (!(await compare(password, user.password))) {
-      res.status(401).send(`Password is wrong for user ${email}`)
+      res.status(401).send(`Password is wrong for user ${username}`)
       return
     }
 

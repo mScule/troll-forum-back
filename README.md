@@ -13,7 +13,8 @@
 **BCrypt** for crypting stuff.
 
 **Prisma** as ORM.\
-**PostgreSQL** as the database.
+**PostgreSQL** as the database.\
+**Jest** as the unit test library.
 
 ## Commands
 
@@ -21,6 +22,7 @@
 |----------------------------------------|--------------------------------------|
 | `yarn dev`                             | Run server in interactive dev mode   |
 | `yarn db`                              | Start the dev database               |
+| `yarn jest`                            | Run unit tests                       |
 | `npx prisma migrate dev`               | Update db to follow the schema       |
 | `npx prisma migrate dev --name <name>` | Create new migration with given name |
 
@@ -57,6 +59,9 @@ CRYPTING_JWT_SECRET=<STRING VALUE HERE>
 - Run `yarn install` to install all dependencies.
 - Run `yarn db` to start the dev db.
 - Run `npx prisma migrate dev` to populate the database with tables and stuff.
+
+** If you are using HeidiSQL to view the database, you need to install the **
+** package that it recommends in the connection error **
 
 ### If database container is stopped:
 - Run `yarn db`

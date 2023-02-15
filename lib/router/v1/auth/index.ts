@@ -5,18 +5,19 @@ import handleValidationErrors from "../../../middleware/generic-validation-error
 import handlers from "./handler"
 
 const router = Router()
+const path = "/auth"
 
 router
-  .route("/signIn")
-  .get(
-    authencticationNeeded,
-    handlers.checkSignInStatus
-  )
+  .route(path)
+  .get(authencticationNeeded, handlers.checkSignInStatus)
   .post(
-    body("email").isEmail(),
+    body("username").isEmail(),
     body("password").isString().isLength({ min: 4 }),
     handleValidationErrors,
     handlers.signIn
   )
 
-export default router
+export default {
+  path,
+  router
+}

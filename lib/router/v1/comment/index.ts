@@ -1,16 +1,16 @@
 import { Router } from "express"
 
-import userId from "./user-id"
+import commentId from "./comment-id"
 
 const router = Router()
-const path = "/user"
+const path = "/comment"
 
 router.route(path).get((req, res) => {
-  res.send(`/user`)
+  res.send(`/comment`)
 })
 
 export default {
   path,
   router,
-  userId
+  commentId
 }
