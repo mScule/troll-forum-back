@@ -13,7 +13,8 @@
 **BCrypt** for crypting stuff.
 
 **Prisma** as ORM.\
-**PostgreSQL** as the database.
+**PostgreSQL** as the database.\
+**Jest** as the unit test library.
 
 ## Commands
 
@@ -21,6 +22,7 @@
 |----------------------------------------|--------------------------------------|
 | `yarn dev`                             | Run server in interactive dev mode   |
 | `yarn db`                              | Start the dev database               |
+| `yarn jest`                            | Run unit tests                       |
 | `npx prisma migrate dev`               | Update db to follow the schema       |
 | `npx prisma migrate dev --name <name>` | Create new migration with given name |
 
