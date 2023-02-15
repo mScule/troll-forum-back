@@ -22,6 +22,6 @@ app.all("*", notFound)
 app.listen(SERVER_PORT, () => {
   console.log(
     `Server:   ${SERVER_HOST} port ${SERVER_PORT}\n` +
-      `Database: ${DB_HOST} port ${DB_PORT}`
+    `Database: ${DB_HOST} port ${DB_PORT}`
   )
 })

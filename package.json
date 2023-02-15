@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev-server-run": "ts-node ./lib/index.ts",
-    "dev": "docker-compose up -d && nodemon",
-    "dev-db": "docker-compose up",
+    "dev": "nodemon",
+    "db": "docker-compose up",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
