@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { body } from "express-validator"
-import handleValicationErrors from "../../../middleware/generic-validation-error"
+import handleValidationErrors from "../../../middleware/generic-validation-error"
 import handler from "./handler"
 
 import userId from "./user-id"
@@ -14,7 +14,7 @@ router
   .post(
     body("username").isString().isLength({ min: 3 }),
     body("password").isString().isLength({ min: 12 }),
-    handleValicationErrors,
+    handleValidationErrors,
     handler.post
   )
 
