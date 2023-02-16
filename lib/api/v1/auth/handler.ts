@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken"
 const { CRYPTING_JWT_SECRET } = process.env
 
 function post(req: Request, res: Response) {
-  const username = asLowerCase(req.body.email)
+  const username = asLowerCase(req.body.username)
   const password = req.body.password
 
   prisma(async client => {

@@ -7,24 +7,24 @@
  Authenticated               | 🔒
  Authenticated as the author | 🚹
 
- Route                           | Methods
----------------------------------|---------
- `auth/`                         | **GET** 🔒, **POST**
- `user/`                         | **GET**, **POST**
- `user/{userId}/`                | **GET**, **PATCH** 🚹
- `user/{userId}/post/`           | **GET**
- `user/{userId}/comment/`        | **GET**
- `user/{userId}/reaction/`       | **GET**
- `post/`                         | **GET**, **POST** 🔒
- `post/{postId}/`                | **GET**, **PATCH** 🚹
- `post/{postId}/comment/`        | **GET**, **POST** 🔒
- `post/{postId}/reaction/`       | **GET**, **POST** 🔒
- `comment/`                      | **GET**
- `comment/{commentId}/`          | **GET**, **PATCH** 🚹
- `comment/{commentId}/comment/`  | **GET**, **POST** 🔒
- `comment/{commentId}/reaction/` | **GET**, **POST** 🔒
- `reaction/`                     | **GET**
- `reaction/{reactionId}/`        | **GET**, **PATCH** 🚹, **DELETE** 🚹
+Done | Route                           | Methods
+-----|---------------------------------|-------
+ ✅  | `auth/`                         | **GET** 🔒, **POST**
+ ✅  | `user/`                         | **GET**, **POST**
+ ❌  | `user/{userId}/`                | **GET**, **PATCH** 🚹
+ ❌  | `user/{userId}/post/`           | **GET**
+ ❌  | `user/{userId}/comment/`        | **GET**
+ ❌  | `user/{userId}/reaction/`       | **GET**
+ ❌  | `post/`                         | **GET**, **POST** 🔒
+ ❌  | `post/{postId}/`                | **GET**, **PATCH** 🚹
+ ❌  | `post/{postId}/comment/`        | **GET**, **POST** 🔒
+ ❌  | `post/{postId}/reaction/`       | **GET**, **POST** 🔒
+ ❌  | `comment/`                      | **GET**
+ ❌  | `comment/{commentId}/`          | **GET**, **PATCH** 🚹
+ ❌  | `comment/{commentId}/comment/`  | **GET**, **POST** 🔒
+ ❌  | `comment/{commentId}/reaction/` | **GET**, **POST** 🔒
+ ❌  | `reaction/`                     | **GET**
+ ❌  | `reaction/{reactionId}/`        | **GET**, **PATCH** 🚹, **DELETE** 🚹
 
 ## Commands
 

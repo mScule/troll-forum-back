@@ -5,17 +5,17 @@ const { CRYPTING_JWT_SECRET } = process.env
 
 const asAny = Router()
 asAny.use((req, res, next) => {
-  const authorizationHeader = req.headers.authorization
+  const accessToken = req.headers.authorization
     ? req.headers.authorization
     : null
 
-  const accessToken =
-    (authorizationHeader + "").includes("accessToken") &&
-    (authorizationHeader + "").includes(" ")
-      ? authorizationHeader?.split(" ")[1]
-      : null
+  let decodedToken
 
-  const decodedToken = jwt.verify(accessToken + "", CRYPTING_JWT_SECRET + "")
+  try {
+    decodedToken = jwt.verify(accessToken + "", CRYPTING_JWT_SECRET + "")
+  } catch {
+    decodedToken = null;
+  }
 
   if (!decodedToken) {
     res.status(401)
