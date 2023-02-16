@@ -1,9 +1,9 @@
 import { Router } from "express"
 import { validationResult } from "express-validator"
 
-const router = Router()
+const handleValicationErrors = Router()
 
-router.use((req, res, next) => {
+handleValicationErrors.use((req, res, next) => {
   const errors = validationResult(req)
 
   if (!errors.isEmpty()) {
@@ -13,4 +13,4 @@ router.use((req, res, next) => {
   }
 })
 
-export default router
+export default handleValicationErrors
