@@ -1,20 +1,30 @@
 # Troll forum backend
 
-## Technologies used
+## Routes
 
-**TypeScript** as the language.\
-**Dotenv** to support .env files.\
-**Dotenv - Expand** to add variable composition support for .env files.
+ Meaning                     | Icon
+-----------------------------|------
+ Authenticated               | 🔒
+ Authenticated as the author | 🚹
 
-**Express** as server framework.\
-**Cors - Express middleware** for easy cors configuration.\
-**Express validator - Express middleware** for validating request values.
-
-**BCrypt** for crypting stuff.
-
-**Prisma** as ORM.\
-**PostgreSQL** as the database.\
-**Jest** as the unit test library.
+ Route                           | Methods
+---------------------------------|---------
+ `auth/`                         | **GET** 🔒, **POST**
+ `user/`                         | **GET**, **POST**
+ `user/{userId}/`                | **GET**, **PATCH** 🚹
+ `user/{userId}/post/`           | **GET**
+ `user/{userId}/comment/`        | **GET**
+ `user/{userId}/reaction/`       | **GET**
+ `post/`                         | **GET**, **POST** 🔒
+ `post/{postId}/`                | **GET**, **PATCH** 🚹
+ `post/{postId}/comment/`        | **GET**, **POST** 🔒
+ `post/{postId}/reaction/`       | **GET**, **POST** 🔒
+ `comment/`                      | **GET**
+ `comment/{commentId}/`          | **GET**, **PATCH** 🚹
+ `comment/{commentId}/comment/`  | **GET**, **POST** 🔒
+ `comment/{commentId}/reaction/` | **GET**, **POST** 🔒
+ `reaction/`                     | **GET**
+ `reaction/{reactionId}/`        | **GET**, **PATCH** 🚹, **DELETE** 🚹
 
 ## Commands
 
@@ -28,14 +38,14 @@
 
 *To terminate any of the commands, hit **CTRL** + **C***
 
-## Running dev server
+## Running dev server...
 
-### For the first time:
-- Make sure that you have:
-  Docker desktop,
-  Node (18 or newer),
-  NPM,
-  Yarn.
+### for the first time:
+- Make sure that you have: \
+  **Docker desktop**, \
+  **Node (18 or newer)**,\
+  **NPM**,\
+  **Yarn**.
 - Make sure that the Docker desktop is up and running.
 - Make sure that you have .env file created with following schema:
 ```conf

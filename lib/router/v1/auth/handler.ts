@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken"
 
 const { CRYPTING_JWT_SECRET } = process.env
 
-function signIn(req: Request, res: Response) {
+function post(req: Request, res: Response) {
   const username = asLowerCase(req.body.email)
   const password = req.body.password
 
@@ -38,11 +38,11 @@ function signIn(req: Request, res: Response) {
 }
 
 
-function checkSignInStatus(req: Request, res: Response) {
+function get(req: Request, res: Response) {
   res.status(200).send("User is signed in")
 }
 
 export default {
-  signIn,
-  checkSignInStatus
+  get,
+  post
 }

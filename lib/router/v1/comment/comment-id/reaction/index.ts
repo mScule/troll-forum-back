@@ -1,11 +1,11 @@
 import { Router } from "express"
+import handler from "./handler"
+import authenticate from "../../../../../middleware/authenticate"
 
 const router = Router()
 const path = "/comment/:commentId/reaction"
 
-router.route(path).get((req, res) => {
-  res.send(`/comment/${req.params.commentId}/reaction`)
-})
+router.route(path).get(handler.get).post(authenticate.asAny, handler.post)
 
 export default {
   path,

@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { body } from "express-validator"
-import authencticationNeeded from "../../../middleware/authentication"
+import authenticate from "../../../middleware/authenticate"
 import handleValidationErrors from "../../../middleware/generic-validation-error"
 import handlers from "./handler"
 
@@ -9,12 +9,12 @@ const path = "/auth"
 
 router
   .route(path)
-  .get(authencticationNeeded, handlers.checkSignInStatus)
+  .get(authenticate.asAny, handlers.get)
   .post(
     body("username").isEmail(),
     body("password").isString().isLength({ min: 4 }),
     handleValidationErrors,
-    handlers.signIn
+    handlers.post
   )
 
 export default {
