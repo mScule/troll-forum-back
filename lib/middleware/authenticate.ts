@@ -34,7 +34,7 @@ const authorize = (req: Request, res: Response) => {
 
   if (!decodedToken) {
     unauthorized(res)
-    return
+    return false
   }
 
   authReq.user = { id: Number.parseInt(decodedToken.data.id) }
@@ -46,7 +46,9 @@ const asAny = async (req: Request, res: Response, next: NextFunction) => {
 }
 
 const asAuthor = async (req: Request, res: Response, next: NextFunction) => {
-  authorize(req, res)
+  if (!authorize(req, res)) {
+    return
+  }
 
   const toIntOrNull = (value: string | undefined) =>
     value ? Number.parseInt(value) : null
