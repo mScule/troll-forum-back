@@ -6,25 +6,50 @@
 | --------------------------- | ---- |
 | Authenticated               | 🔒   |
 | Authenticated as the author | 🚹   |
+| Avaliable                   | ✅   |
+| Work in progress            | 🏗️   |
+| Not Done                    | ❌   |
 
-| Route                           | Methods                                       |
-| ------------------------------- | --------------------------------------------- |
-| `auth/`                         | ✅ **GET** 🔒, ✅ **POST**                    |
-| `user/`                         | ✅ **GET**, ✅ **POST**                       |
-| `user/{userId}/`                | ✅ **GET**, ✅ **PATCH** 🚹                   |
-| `user/{userId}/post/`           | ✅ **GET**                                    |
-| `user/{userId}/comment/`        | ✅ **GET**                                    |
-| `user/{userId}/reaction/`       | ✅ **GET**                                    |
-| `post/`                         | ✅ **GET**, ✅ **POST** 🔒                    |
-| `post/{postId}/`                | ❌ **GET**, ❌ **PATCH** 🚹                   |
-| `post/{postId}/comment/`        | ❌ **GET**, ❌ **POST** 🔒                    |
-| `post/{postId}/reaction/`       | ❌ **GET**, ❌ **POST** 🔒                    |
-| `comment/`                      | ❌ **GET**                                    |
-| `comment/{commentId}/`          | ❌ **GET**, ❌ **PATCH** 🚹                   |
-| `comment/{commentId}/comment/`  | ❌ **GET**, ❌ **POST** 🔒                    |
-| `comment/{commentId}/reaction/` | ❌ **GET**, ❌ **POST** 🔒                    |
-| `reaction/`                     | ❌ **GET**                                    |
-| `reaction/{reactionId}/`        | ❌ **GET**, ❌ **PATCH** 🚹, ❌ **DELETE** 🚹 |
+### Authorization
+
+| Route   | Methods                    |
+| ------- | -------------------------- |
+| `auth/` | ✅ **GET** 🔒, ✅ **POST** |
+
+### User
+
+| Route                     | Methods                     |
+| ------------------------- | --------------------------- |
+| `user/`                   | ✅ **GET**, ✅ **POST**     |
+| `user/{userId}/`          | ✅ **GET**, ✅ **PATCH** 🚹 |
+| `user/{userId}/post/`     | ✅ **GET**                  |
+| `user/{userId}/comment/`  | ✅ **GET**                  |
+| `user/{userId}/reaction/` | ✅ **GET**                  |
+
+### Posts
+
+| Route                     | Methods                     |
+| ------------------------- | --------------------------- |
+| `post/`                   | ✅ **GET**, ✅ **POST** 🔒  |
+| `post/{postId}/`          | 🏗️ **GET**, 🏗️ **PATCH** 🚹 |
+| `post/{postId}/comment/`  | 🏗️ **GET**, 🏗️ **POST** 🔒  |
+| `post/{postId}/reaction/` | 🏗️ **GET**, 🏗️ **POST** 🔒  |
+
+### Comments
+
+| Route                           | Methods                     |
+| ------------------------------- | --------------------------- |
+| `comment/`                      | ❌ **GET**                  |
+| `comment/{commentId}/`          | ❌ **GET**, ❌ **PATCH** 🚹 |
+| `comment/{commentId}/comment/`  | ❌ **GET**, ❌ **POST** 🔒  |
+| `comment/{commentId}/reaction/` | ❌ **GET**, ❌ **POST** 🔒  |
+
+### Reactions
+
+| Route                    | Methods                                       |
+| ------------------------ | --------------------------------------------- |
+| `reaction/`              | ❌ **GET**                                    |
+| `reaction/{reactionId}/` | ❌ **GET**, ❌ **PATCH** 🚹, ❌ **DELETE** 🚹 |
 
 ## Commands
 
