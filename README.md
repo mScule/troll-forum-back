@@ -12,10 +12,10 @@
 | `auth/`                         | ✅ **GET** 🔒, ✅ **POST**                    |
 | `user/`                         | ✅ **GET**, ✅ **POST**                       |
 | `user/{userId}/`                | ✅ **GET**, ✅ **PATCH** 🚹                   |
-| `user/{userId}/post/`           | ❌ **GET**                                    |
-| `user/{userId}/comment/`        | ❌ **GET**                                    |
-| `user/{userId}/reaction/`       | ❌ **GET**                                    |
-| `post/`                         | ❌ **GET**, ❌ **POST** 🔒                    |
+| `user/{userId}/post/`           | ✅ **GET**                                    |
+| `user/{userId}/comment/`        | ✅ **GET**                                    |
+| `user/{userId}/reaction/`       | ✅ **GET**                                    |
+| `post/`                         | ✅ **GET**, ✅ **POST** 🔒                    |
 | `post/{postId}/`                | ❌ **GET**, ❌ **PATCH** 🚹                   |
 | `post/{postId}/comment/`        | ❌ **GET**, ❌ **POST** 🔒                    |
 | `post/{postId}/reaction/`       | ❌ **GET**, ❌ **POST** 🔒                    |
