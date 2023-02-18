@@ -11,7 +11,7 @@
 | ------------------------------- | --------------------------------------------- |
 | `auth/`                         | ✅ **GET** 🔒, ✅ **POST**                    |
 | `user/`                         | ✅ **GET**, ✅ **POST**                       |
-| `user/{userId}/`                | ✅ **GET**, ❌ **PATCH** 🚹                   |
+| `user/{userId}/`                | ✅ **GET**, ✅ **PATCH** 🚹                   |
 | `user/{userId}/post/`           | ❌ **GET**                                    |
 | `user/{userId}/comment/`        | ❌ **GET**                                    |
 | `user/{userId}/reaction/`       | ❌ **GET**                                    |

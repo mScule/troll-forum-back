@@ -6,11 +6,11 @@ import jwt from "jsonwebtoken"
 
 const { CRYPTING_JWT_SECRET } = process.env
 
-function post(req: Request, res: Response) {
+const post = async (req: Request, res: Response) => {
   const username = asLowerCase(req.body.username)
   const password = req.body.password
 
-  prisma(async client => {
+  await prisma(async client => {
     const user = await client.user.findUnique({
       where: {
         username
@@ -38,7 +38,7 @@ function post(req: Request, res: Response) {
 }
 
 
-function get(req: Request, res: Response) {
+function get(_req: Request, res: Response) {
   res.status(200).send("User is signed in")
 }
 
