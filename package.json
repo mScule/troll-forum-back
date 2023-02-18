@@ -7,7 +7,7 @@
     "dev-server-run": "ts-node ./lib/index.ts",
     "dev": "nodemon",
     "db": "docker-compose up",
-    "test": "ENV_FILE=.env.test jest"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
