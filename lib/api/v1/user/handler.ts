@@ -13,7 +13,6 @@ const get = async (req: Request, res: Response) => {
 }
 
 const post = async (req: Request, res: Response) => {
-  console.log("BODY", req.body)
   const username = req.body.username
   const password = crypting.hash(req.body.password)
 

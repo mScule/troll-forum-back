@@ -1,4 +1,5 @@
 import "./setup/env"
+
 import express from "express"
 import cors from "cors"
 import jsonContentType from "./middleware/json-content-type"
