@@ -32,7 +32,7 @@
 | ------------------------- | --------------------------- |
 | `post/`                   | ✅ **GET**, ✅ **POST** 🔒  |
 | `post/{postId}/`          | ✅ **GET**, ✅ **PATCH** 🚹 |
-| `post/{postId}/comment/`  | 🏗️ **GET**, 🏗️ **POST** 🔒  |
+| `post/{postId}/comment/`  | ✅ **GET**, ✅ **POST** 🔒  |
 | `post/{postId}/reaction/` | 🏗️ **GET**, 🏗️ **POST** 🔒  |
 
 ### Comments
