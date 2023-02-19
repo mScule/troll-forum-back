@@ -24,6 +24,12 @@ const post = async (req: Request, res: Response) => {
   const body = req.body.body
 
   await prisma(async client => {
+    const post = await client.post.findUnique({ where: { id: postId } })
+    if (!post) {
+      notFound(res)
+      return
+    }
+
     const comment = await client.comment.create({
       data: {
         authorId: userId,
@@ -32,7 +38,7 @@ const post = async (req: Request, res: Response) => {
       }
     })
 
-    res.status(200).send({ comment })
+    res.status(201).send({ comment })
   })
 }
 
