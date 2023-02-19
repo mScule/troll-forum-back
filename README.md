@@ -31,7 +31,7 @@
 | Route                     | Methods                     |
 | ------------------------- | --------------------------- |
 | `post/`                   | ✅ **GET**, ✅ **POST** 🔒  |
-| `post/{postId}/`          | ✅ **GET**, 🏗️ **PATCH** 🚹 |
+| `post/{postId}/`          | ✅ **GET**, ✅ **PATCH** 🚹 |
 | `post/{postId}/comment/`  | 🏗️ **GET**, 🏗️ **POST** 🔒  |
 | `post/{postId}/reaction/` | 🏗️ **GET**, 🏗️ **POST** 🔒  |
 
