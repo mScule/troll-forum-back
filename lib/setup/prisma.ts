@@ -1,16 +1,13 @@
 import { PrismaClient } from "@prisma/client"
 
-async function prisma(queries: (client: PrismaClient) => Promise<void>) {
-  const prisma = new PrismaClient()
+const instance = new PrismaClient()
 
-  await queries(prisma)
+async function prisma(queries: (client: PrismaClient) => Promise<void>) {
+  await instance.$connect()
+  await queries(instance)
     .then()
-    .catch(async e => {
-      console.error(e)
-    })
-    .finally(async () => {
-      await prisma.$disconnect()
-    })
+    .catch(async e => console.error(e))
+    .finally(async () => await instance.$disconnect())
 }
 
 export default prisma
