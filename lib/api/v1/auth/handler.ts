@@ -3,6 +3,7 @@ import prisma from "../../../setup/prisma"
 import { compare } from "bcrypt"
 import asLowerCase from "../../../string/as-lower-case"
 import jwt from "jsonwebtoken"
+import milliseconds from "../../../time/milliseconds"
 
 const { CRYPTING_JWT_SECRET } = process.env
 
@@ -28,7 +29,7 @@ const post = async (req: Request, res: Response) => {
     }
 
     const data = { id: user.id }
-    const exp = Math.floor(Date.now() / 1000 + 60 * 60)
+    const exp = Math.floor(Date.now() + milliseconds.fromDays(1))
 
     const token = jwt.sign({ data, exp }, CRYPTING_JWT_SECRET + "")
 

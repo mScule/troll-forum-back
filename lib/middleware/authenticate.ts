@@ -14,7 +14,7 @@ const unauthorized = (res: Response) => {
   res.status(401).send(`${res.statusCode} Unauthorized`)
 }
 
-const authorize = (req: Request, res: Response) => {
+const asAny = async (req: Request, res: Response, next: NextFunction) => {
   const authReq = req as AuthenticatedRequest
 
   const accessToken = authReq.headers.authorization
@@ -38,35 +38,54 @@ const authorize = (req: Request, res: Response) => {
   }
 
   authReq.user = { id: Number.parseInt(decodedToken.data.id) }
-}
 
-const asAny = async (req: Request, res: Response, next: NextFunction) => {
-  authorize(req, res)
   next()
 }
 
 const asAuthor = async (req: Request, res: Response, next: NextFunction) => {
-  if (!authorize(req, res)) {
+  const authReq = req as AuthenticatedRequest
+
+  const accessToken = authReq.headers.authorization
+    ? authReq.headers.authorization
+    : null
+
+  let decodedToken: jwt.JwtPayload | null
+
+  try {
+    decodedToken = jwt.verify(
+      accessToken + "",
+      CRYPTING_JWT_SECRET + ""
+    ) as unknown as AccessTokenPayload
+  } catch {
+    decodedToken = null
+  }
+
+  if (!decodedToken) {
+    unauthorized(res)
     return
   }
+
+  authReq.user = { id: Number.parseInt(decodedToken.data.id) }
 
   const toIntOrNull = (value: string | undefined) =>
     value ? Number.parseInt(value) : null
 
-  const userId = getUserId(req)
-
-  const authorId = toIntOrNull(req.params.userId)
-  const postId = toIntOrNull(req.params.postId)
-  const commentId = toIntOrNull(req.params.commentId)
-  const reactionId = toIntOrNull(req.params.reactionId)
+  const userId = getUserId(authReq)
+  const authorId = toIntOrNull(authReq.params.userId)
+  const postId = toIntOrNull(authReq.params.postId)
+  const commentId = toIntOrNull(authReq.params.commentId)
+  const reactionId = toIntOrNull(authReq.params.reactionId)
 
   await prisma(async client => {
     if (authorId && authorId === userId) {
+      console.log("Auth USER")
       next()
       return
     }
 
     if (postId) {
+      console.log("Auth POST")
+
       const post = await client.post.findUnique({
         where: { id: postId }
       })
@@ -75,6 +94,9 @@ const asAuthor = async (req: Request, res: Response, next: NextFunction) => {
         notFound(res)
         return
       }
+
+      console.log("USERID:", userId)
+      console.log("AUTHORID:", post.authorId)
 
       if (userId === post.authorId) {
         next()
@@ -115,6 +137,7 @@ const asAuthor = async (req: Request, res: Response, next: NextFunction) => {
     }
 
     unauthorized(res)
+    return
   })
 }
 
