@@ -9,44 +9,50 @@
 
 ### Authorization
 
-| Route   | Methods              |
-| ------- | -------------------- |
-| `auth/` | **GET** 🔒, **POST** |
+| Route   | Methods                                                                                                            |
+| ------- | ------------------------------------------------------------------------------------------------------------------ |
+| `auth/` | **GET** 🔒, **POST** **Body**: `username` **string** _Min 3 characters_, `password` **string** _Min 12 characters_ |
 
 ### User
 
-| Route                     | Methods               |
-| ------------------------- | --------------------- |
-| `user/`                   | **GET**, **POST**     |
-| `user/{userId}/`          | **GET**, **PATCH** 🚹 |
-| `user/{userId}/post/`     | **GET**               |
-| `user/{userId}/comment/`  | **GET**               |
-| `user/{userId}/reaction/` | **GET**               |
+| Route                     | Methods                                                                                                         |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `user/`                   | **GET**, **POST** **Body**: `username` **string** _Min 3 characters_, `password` **string** _Min 12 characters_ |
+| `user/{userId}/`          | **GET**, **PATCH** 🚹 **Body**: `password` **string** _Min 12 characters_                                       |
+| `user/{userId}/post/`     | **GET**                                                                                                         |
+| `user/{userId}/comment/`  | **GET**                                                                                                         |
+| `user/{userId}/reaction/` | **GET**                                                                                                         |
 
 ### Posts
 
-| Route                     | Methods               |
-| ------------------------- | --------------------- |
-| `post/`                   | **GET**, **POST** 🔒  |
-| `post/{postId}/`          | **GET**, **PATCH** 🚹 |
-| `post/{postId}/comment/`  | **GET**, **POST** 🔒  |
-| `post/{postId}/reaction/` | **GET**, **POST** 🔒  |
+| Route                     | Methods                                                                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------- |
+| `post/`                   | **GET**, **POST** 🔒 **Body**: `title` **string**, `body` **string**                        |
+| `post/{postId}/`          | **GET**, **PATCH** 🚹 **Body**: `title` **string** _optional_, `body` **string** _optional_ |
+| `post/{postId}/comment/`  | **GET**, **POST** 🔒 **Body**: `body` **string**                                            |
+| `post/{postId}/reaction/` | **GET**, **POST** 🔒 **Body**: `type` **"DULL"** or **"TROLL"** or **"SPAM"**               |
 
 ### Comments
 
-| Route                           | Methods               |
-| ------------------------------- | --------------------- |
-| `comment/`                      | **GET**               |
-| `comment/{commentId}/`          | **GET**, **PATCH** 🚹 |
-| `comment/{commentId}/comment/`  | **GET**, **POST** 🔒  |
-| `comment/{commentId}/reaction/` | **GET**, **POST** 🔒  |
+| Route                           | Methods                                                                       |
+| ------------------------------- | ----------------------------------------------------------------------------- |
+| `comment/`                      | **GET**                                                                       |
+| `comment/{commentId}/`          | **GET**, **PATCH** 🚹 **Body**: `body` **string** _optional_                  |
+| `comment/{commentId}/comment/`  | **GET**, **POST** 🔒 **Body**: `body` **string**                              |
+| `comment/{commentId}/reaction/` | **GET**, **POST** 🔒 **Body**: `type` **"DULL"** or **"TROLL"** or **"SPAM"** |
 
 ### Reactions
 
-| Route                    | Methods                              |
-| ------------------------ | ------------------------------------ |
-| `reaction/`              | **GET**                              |
-| `reaction/{reactionId}/` | **GET**, **PATCH** 🚹, **DELETE** 🚹 |
+| Route                    | Methods                                                                             |
+| ------------------------ | ----------------------------------------------------------------------------------- |
+| `reaction/`              | **GET**                                                                             |
+| `reaction/{reactionId}/` | **GET**, **PATCH** 🚹 `type` **"DULL"** or **"TROLL"** or **"SPAM"**, **DELETE** 🚹 |
+
+### Search
+
+| Route     | Methods | Query params         |
+| --------- | ------- | -------------------- |
+| `search/` | **GET** | `value` : **string** |
 
 ## Commands
 
