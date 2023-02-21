@@ -5,6 +5,7 @@ import comment from "./comment"
 import post from "./post"
 import reaction from "./reaction"
 import user from "./user"
+import search from "./search"
 
 describe("API v1 routes point to the right routers", () => {
   test("auth routes", () => {
@@ -32,5 +33,8 @@ describe("API v1 routes point to the right routers", () => {
   test("reaction routes", () => {
     expect(reaction.path).toBe("/reaction")
     expect(reaction.reactionId.path).toBe("/reaction/:reactionId")
+  })
+  test("search routes", () => {
+    expect(search.path).toBe("/search")
   })
 })

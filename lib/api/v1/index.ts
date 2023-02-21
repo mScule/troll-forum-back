@@ -5,6 +5,7 @@ import user from "./user"
 import post from "./post"
 import comment from "./comment"
 import reaction from "./reaction"
+import search from "./search"
 
 const router = Router()
 
@@ -33,6 +34,9 @@ router.use(comment.commentId.reaction.router)
 // Reaction
 router.use(reaction.router)
 router.use(reaction.reactionId.router)
+
+// Search
+router.use(search.router)
 
 export default {
   router
