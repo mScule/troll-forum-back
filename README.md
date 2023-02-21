@@ -42,7 +42,7 @@
 | `comment/`                      | ✅ **GET**                  |
 | `comment/{commentId}/`          | ✅ **GET**, ✅ **PATCH** 🚹 |
 | `comment/{commentId}/comment/`  | ✅ **GET**, ✅ **POST** 🔒  |
-| `comment/{commentId}/reaction/` | ❌ **GET**, ❌ **POST** 🔒  |
+| `comment/{commentId}/reaction/` | ✅ **GET**, ✅ **POST** 🔒  |
 
 ### Reactions
 
