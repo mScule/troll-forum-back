@@ -17,7 +17,7 @@ const get = async (req: Request, res: Response) => {
       return
     }
 
-    res.status(200).send(exclude(user, ["password"]))
+    res.status(200).send({ user: exclude(user, ["password"]) })
   })
 }
 
@@ -31,7 +31,7 @@ const patch = async (req: Request, res: Response) => {
       where: { id: userId }
     })
 
-    res.status(200).send(exclude(user, ["password"]))
+    res.status(200).send({ user: exclude(user, ["password"]) })
   })
 }
 

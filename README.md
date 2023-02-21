@@ -30,29 +30,29 @@
 | `post/`                   | **GET**, **POST** 🔒 **Body**: `title` **string**, `body` **string**                        |
 | `post/{postId}/`          | **GET**, **PATCH** 🚹 **Body**: `title` **string** _optional_, `body` **string** _optional_ |
 | `post/{postId}/comment/`  | **GET**, **POST** 🔒 **Body**: `body` **string**                                            |
-| `post/{postId}/reaction/` | **GET**, **POST** 🔒 **Body**: `type` **"DULL"** or **"TROLL"** or **"SPAM"**               |
+| `post/{postId}/reaction/` | **GET**, **POST** 🔒 **Body**: `type` `"DULL"` or `"TROLL"` or `"SPAM"`                     |
 
 ### Comments
 
-| Route                           | Methods                                                                       |
-| ------------------------------- | ----------------------------------------------------------------------------- |
-| `comment/`                      | **GET**                                                                       |
-| `comment/{commentId}/`          | **GET**, **PATCH** 🚹 **Body**: `body` **string** _optional_                  |
-| `comment/{commentId}/comment/`  | **GET**, **POST** 🔒 **Body**: `body` **string**                              |
-| `comment/{commentId}/reaction/` | **GET**, **POST** 🔒 **Body**: `type` **"DULL"** or **"TROLL"** or **"SPAM"** |
+| Route                           | Methods                                                                 |
+| ------------------------------- | ----------------------------------------------------------------------- |
+| `comment/`                      | **GET**                                                                 |
+| `comment/{commentId}/`          | **GET**, **PATCH** 🚹 **Body**: `body` **string** _optional_            |
+| `comment/{commentId}/comment/`  | **GET**, **POST** 🔒 **Body**: `body` **string**                        |
+| `comment/{commentId}/reaction/` | **GET**, **POST** 🔒 **Body**: `type` `"DULL"` or `"TROLL"` or `"SPAM"` |
 
 ### Reactions
 
-| Route                    | Methods                                                                             |
-| ------------------------ | ----------------------------------------------------------------------------------- |
-| `reaction/`              | **GET**                                                                             |
-| `reaction/{reactionId}/` | **GET**, **PATCH** 🚹 `type` **"DULL"** or **"TROLL"** or **"SPAM"**, **DELETE** 🚹 |
+| Route                    | Methods                                                                                  |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| `reaction/`              | **GET**                                                                                  |
+| `reaction/{reactionId}/` | **GET**, **PATCH** 🚹 **Body**: `type` `"DULL"` or `"TROLL"` or `"SPAM"` , **DELETE** 🚹 |
 
 ### Search
 
-| Route     | Methods | Query params         |
-| --------- | ------- | -------------------- |
-| `search/` | **GET** | `value` : **string** |
+| Route     | Methods                                 |
+| --------- | --------------------------------------- |
+| `search/` | **GET** **Query**: `value` : **string** |
 
 ## Commands
 

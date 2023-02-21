@@ -31,7 +31,7 @@ const post = async (req: Request, res: Response) => {
       }
     })
 
-    res.status(201).send(exclude(user, ["password"]))
+    res.status(201).send({ users: exclude(user, ["password"]) })
   })
 }
 
