@@ -48,8 +48,8 @@
 
 | Route                    | Methods                                       |
 | ------------------------ | --------------------------------------------- |
-| `reaction/`              | ❌ **GET**                                    |
-| `reaction/{reactionId}/` | ❌ **GET**, ❌ **PATCH** 🚹, ❌ **DELETE** 🚹 |
+| `reaction/`              | ✅ **GET**                                    |
+| `reaction/{reactionId}/` | ✅ **GET**, ✅ **PATCH** 🚹, ✅ **DELETE** 🚹 |
 
 ## Commands
 
