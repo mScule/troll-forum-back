@@ -8,7 +8,7 @@ const get = async (req: Request, res: Response) => {
     const users = (await client.user.findMany()).map(user =>
       exclude(user, ["password"])
     )
-    res.send(users)
+    res.send({users})
   })
 }
 
@@ -31,7 +31,7 @@ const post = async (req: Request, res: Response) => {
       }
     })
 
-    res.status(201).send({ users: exclude(user, ["password"]) })
+    res.status(201).send({ user: exclude(user, ["password"]) })
   })
 }
 
