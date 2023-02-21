@@ -39,8 +39,8 @@ model Reaction {
 
   type ReactionType
 
-  userId    Int?
-  user      User?    @relation(fields: [userId], references: [id])
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
   commentId Int?
   comment   Comment? @relation(fields: [commentId], references: [id])
   postId    Int?
