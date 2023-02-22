@@ -78,13 +78,12 @@ const asAuthor = async (req: Request, res: Response, next: NextFunction) => {
 
   await prisma(async client => {
     if (authorId && authorId === userId) {
-      console.log("Auth USER")
+
       next()
       return
     }
 
     if (postId) {
-      console.log("Auth POST")
 
       const post = await client.post.findUnique({
         where: { id: postId }
@@ -95,8 +94,7 @@ const asAuthor = async (req: Request, res: Response, next: NextFunction) => {
         return
       }
 
-      console.log("USERID:", userId)
-      console.log("AUTHORID:", post.authorId)
+
 
       if (userId === post.authorId) {
         next()

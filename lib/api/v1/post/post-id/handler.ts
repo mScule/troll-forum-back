@@ -21,10 +21,6 @@ const patch = async (req: Request, res: Response) => {
   const title = req.body.title
   const body = req.body.body
 
-  console.log("POSTID:", postId)
-  console.log("TITLE:", title)
-  console.log("BODY:", body)
-
   let updated: { title?: string; body?: string } = {}
 
   if (title) {
