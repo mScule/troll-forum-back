@@ -14,8 +14,6 @@ const get = async (req: Request, res: Response) => {
       })
     ).map(user => exclude(user, ["password"]))
 
-    console.log("USERS:", users)
-
     const posts = await client.post.findMany({
       where: {
         title: { contains: searchValue, mode: "insensitive" }
