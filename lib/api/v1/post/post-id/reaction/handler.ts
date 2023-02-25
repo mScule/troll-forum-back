@@ -13,7 +13,7 @@ const get = async (req: Request, res: Response) => {
       return
     }
 
-    const reactions = await client.reaction.findMany({ where: { id: postId } })
+    const reactions = await client.reaction.findMany({ where: { postId: postId } })
     res.status(200).send({ reactions })
   })
 }
