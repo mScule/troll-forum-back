@@ -1,6 +1,8 @@
 # Troll forum backend
 
-## Routes
+## Routes V1
+
+**REMEMBER** All routes are prefixed with the version path `/v1`
 
 | Meaning                     | Icon |
 | --------------------------- | ---- |
@@ -53,6 +55,14 @@
 | Route     | Methods                                 |
 | --------- | --------------------------------------- |
 | `search/` | **GET** **Query**: `value` : **string** |
+
+### Most
+
+| Route        | Methods |
+| ------------ | ------- |
+| `most/dull`  | **GET** |
+| `most/spam`  | **GET** |
+| `most/troll` | **GET** |
 
 ## Commands
 
