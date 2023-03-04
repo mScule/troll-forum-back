@@ -20,7 +20,7 @@ const get = async (_req: Request, res: Response, type: ReactionType) => {
 
         GROUP BY "Post"."id"
         ORDER BY "reactionCount" DESC
-        LIMIT 1;
+        LIMIT 3;
       `,
 
       comments: await client.$queryRaw`
@@ -37,7 +37,7 @@ const get = async (_req: Request, res: Response, type: ReactionType) => {
 
       GROUP BY "Comment"."id"
       ORDER BY "reactionCount" DESC
-      LIMIT 1;
+      LIMIT 3;
     `
     }
 
