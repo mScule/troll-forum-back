@@ -6,6 +6,7 @@ import post from "./post"
 import comment from "./comment"
 import reaction from "./reaction"
 import search from "./search"
+import most from "./most"
 
 const router = Router()
 
@@ -37,6 +38,9 @@ router.use(reaction.reactionId.router)
 
 // Search
 router.use(search.router)
+
+// Most
+router.use(most.router)
 
 export default {
   router
