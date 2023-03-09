@@ -8,6 +8,14 @@ Before advancing, make sure that you have installed following:
 - [Node.js and npm](https://nodejs.org/en/) *(Only Node.js versions 18 and up have been tested to work)*
 - [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
 
+### Optional
+
+If you are using VS Code you can install following extension to improve the dev
+experience:
+
+- [Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
 ## Setup
 
 0. Run `yarn install` to install all dependencies.
