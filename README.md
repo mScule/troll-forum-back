@@ -6,12 +6,6 @@ Backend for "Trolf" Trolling forum.
 
 See: [Project setup guide](./doc/setup-guide/guide.md)
 
-## Api versions
-
-See different supported api router versions below:
-
-[Version 1](./doc/api-versions/v1.md)
-
 ## Commands
 
 *Remember to check that the Docker is running*
@@ -25,3 +19,9 @@ See different supported api router versions below:
 | `npx prisma migrate dev --name <name>` | Create new migration with given name |
 
 *To terminate any of the commands, hit **CTRL** + **C***
+
+## Api versions
+
+See different supported api router versions below:
+
+[Version 1](./doc/api-versions/v1.md)
