@@ -7,6 +7,7 @@ import reaction from "./reaction"
 import user from "./user"
 import search from "./search"
 
+/* Test checks that the paths are correct for every route */
 describe("API v1 routes point to the right routers", () => {
   test("auth routes", () => {
     expect(auth.path).toBe("/auth")

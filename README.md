@@ -1,70 +1,20 @@
-# Troll forum backend
+# Trolf - Backend
 
-## Routes V1
+Backend for "Trolf" Trolling forum.
 
-**REMEMBER** All routes are prefixed with the version path `/v1`
+## First time?
 
-| Meaning                     | Icon |
-| --------------------------- | ---- |
-| Authenticated               | 🔒   |
-| Authenticated as the author | 🚹   |
+See: [Project setup guide](./doc/setup-guide/guide.md)
 
-### Authorization
+## Api versions
 
-| Route   | Methods                                                                                                            |
-| ------- | ------------------------------------------------------------------------------------------------------------------ |
-| `auth/` | **GET** 🔒, **POST** **Body**: `username` **string** _Min 3 characters_, `password` **string** _Min 12 characters_ |
+See different supported api router versions below:
 
-### User
-
-| Route                     | Methods                                                                                                         |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `user/`                   | **GET**, **POST** **Body**: `username` **string** _Min 3 characters_, `password` **string** _Min 12 characters_ |
-| `user/{userId}/`          | **GET**, **PATCH** 🚹 **Body**: `password` **string** _Min 12 characters_                                       |
-| `user/{userId}/post/`     | **GET**                                                                                                         |
-| `user/{userId}/comment/`  | **GET**                                                                                                         |
-| `user/{userId}/reaction/` | **GET**                                                                                                         |
-
-### Posts
-
-| Route                     | Methods                                                                                     |
-| ------------------------- | ------------------------------------------------------------------------------------------- |
-| `post/`                   | **GET**, **POST** 🔒 **Body**: `title` **string**, `body` **string**                        |
-| `post/{postId}/`          | **GET**, **PATCH** 🚹 **Body**: `title` **string** _optional_, `body` **string** _optional_ |
-| `post/{postId}/comment/`  | **GET**, **POST** 🔒 **Body**: `body` **string**                                            |
-| `post/{postId}/reaction/` | **GET**, **POST** 🔒 **Body**: `type` `"DULL"` or `"TROLL"` or `"SPAM"`                     |
-
-### Comments
-
-| Route                           | Methods                                                                 |
-| ------------------------------- | ----------------------------------------------------------------------- |
-| `comment/`                      | **GET**                                                                 |
-| `comment/{commentId}/`          | **GET**, **PATCH** 🚹 **Body**: `body` **string** _optional_            |
-| `comment/{commentId}/comment/`  | **GET**, **POST** 🔒 **Body**: `body` **string**                        |
-| `comment/{commentId}/reaction/` | **GET**, **POST** 🔒 **Body**: `type` `"DULL"` or `"TROLL"` or `"SPAM"` |
-
-### Reactions
-
-| Route                    | Methods                                                                                  |
-| ------------------------ | ---------------------------------------------------------------------------------------- |
-| `reaction/`              | **GET**                                                                                  |
-| `reaction/{reactionId}/` | **GET**, **PATCH** 🚹 **Body**: `type` `"DULL"` or `"TROLL"` or `"SPAM"` , **DELETE** 🚹 |
-
-### Search
-
-| Route     | Methods                                 |
-| --------- | --------------------------------------- |
-| `search/` | **GET** **Query**: `value` : **string** |
-
-### Most
-
-| Route        | Methods |
-| ------------ | ------- |
-| `most/dull`  | **GET** |
-| `most/spam`  | **GET** |
-| `most/troll` | **GET** |
+[Version 1](./doc/api-versions/v1.md)
 
 ## Commands
+
+*Remember to check that the Docker is running*
 
 | Command                                | Functionality                        |
 | -------------------------------------- | ------------------------------------ |
@@ -74,50 +24,4 @@
 | `npx prisma migrate dev`               | Update db to follow the schema       |
 | `npx prisma migrate dev --name <name>` | Create new migration with given name |
 
-\*To terminate any of the commands, hit **CTRL** + **C\***
-
-## Running dev server...
-
-### for the first time:
-
-- Make sure that you have: \
-  **Docker desktop**, \
-  **Node (18 or newer)**,\
-  **NPM**,\
-  **Yarn**.
-- Make sure that the Docker desktop is up and running.
-- Make sure that you have .env file created with following schema:
-
-```conf
-# DB
-DB_USER=<STRING VALUE HERE>
-DB_PASSWORD=<STRING VALUE HERE>
-DB_HOST=<STRING VALUE HERE>
-DB_PORT="5432"
-DB_DB=<STRING VALUE HERE>
-DB_URL="postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_DB}?schema=public"
-
-# Server
-SERVER_PORT="3001"
-SERVER_HOST=<STRING VALUE HERE>
-
-# Crypting
-CRYPTING_SALT_ROUNDS=<STRING VALUE HERE>
-CRYPTING_JWT_SECRET=<STRING VALUE HERE>
-```
-
-- Make sure that the .env file variables are filled with correct data.
-- Run `yarn install` to install all dependencies.
-- Run `yarn db` to start the dev db.
-- Run `npx prisma migrate dev` to populate the database with tables and stuff.
-
-** If you are using HeidiSQL to view the database, you need to install the **
-** package that it recommends in the connection error **
-
-### If database container is stopped:
-
-- Run `yarn db`
-
-### Just to start the dev server:
-
-- Run `yarn dev` to start the server
+*To terminate any of the commands, hit **CTRL** + **C***
